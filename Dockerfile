@@ -1,18 +1,22 @@
-#Etapa 1 
-
-# Etapa 1: Construcción
+# Etapa 1: Construcción de la aplicación Angular
 FROM node:20-alpine AS builder
+
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm install
+
 COPY . .
 RUN npm run build -- --configuration production
 
-# Etapa 2: Servidor Nginx
+# Etapa 2: Servidor Nginx para servir la app
 FROM nginx:alpine
-COPY --from=builder /app/dist/saludo/browser /usr/share/nginx/html
 
-#Usa este archivo para definir cómo responder a las peticiones que lleguen al servidor.
+
+COPY --from=builder /app/dist/Nacato_Freddy_IMC /usr/share/nginx/html
+
+# Copia configuración de Nginx si la tienes personalizada
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-#CMD ["nginx", "-g", "daemon off;"]
+# Mantiene Nginx corriendo
+CMD ["nginx", "-g", "daemon off;"]
