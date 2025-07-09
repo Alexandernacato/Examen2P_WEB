@@ -1,0 +1,9 @@
+  <div class="container">
+      <h1>Calculadora IMC</h1>
+      <app-display [imc]="imc()" [categoria]="categoria()" />
+      <app-controles
+        [onIncrementar]="incrementarPeso"
+        [onDecrementar]="decrementarPeso"
+        [onReiniciar]="reiniciarPeso"
+      />
+    </div>

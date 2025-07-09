@@ -1,0 +1,18 @@
+.imc-display {
+      padding: 2rem;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      color: white;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .valor {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0.3rem 0;
+    }
+
+    .bajo-peso    { background-color: #2196f3; }
+    .normal       { background-color: #4caf50; }
+    .sobrepeso    { background-color: #ff9800; }
+    .obesidad     { background-color: #f44336; }
