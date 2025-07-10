@@ -13,7 +13,7 @@ RUN npm run build -- --configuration production
 FROM nginx:alpine
 
 
-COPY --from=builder /app/dist/Nacato_Freddy_IMC /usr/share/nginx/html
+COPY --from=builder /app/dist/Nacato_Freddy_IMC/browser /usr/share/nginx/html
 
 # Copia configuración de Nginx si la tienes personalizada
 COPY nginx.conf /etc/nginx/conf.d/default.conf
